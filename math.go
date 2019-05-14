@@ -14,7 +14,7 @@ func Add(nums ...int) int {
 // Multiply returns the product of x times y
 func Multiply(x, y int) int {
 	total := 0
-	for i := 0; i <= x; i++ {
+	for i := 0; i < x; i++ {
 		total = Add(total, y)
 	}
 
