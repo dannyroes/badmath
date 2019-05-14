@@ -9,15 +9,18 @@ import (
 func TestAdd(t *testing.T) {
 	assert := assert.New(t)
 
-	result := Add(3, 4)
+	result, err := Add(3, 4)
+	assert.Nil(err)
 	assert.Equal(7, result)
 
-	result = Add(0, 5)
+	result, err = Add(0, 5)
 	assert.Equal(5, result)
+	assert.Nil(err)
 
 	nums := []int{2, 4, 8}
-	result = Add(nums...)
+	result, err = Add(nums...)
 	assert.Equal(14, result)
+	assert.Nil(err)
 }
 
 func TestMultiply(t *testing.T) {
@@ -28,4 +31,16 @@ func TestMultiply(t *testing.T) {
 
 	result = Multiply(0, 10)
 	assert.Equal(0, result)
+}
+
+func TestDivide(t *testing.T) {
+	assert := assert.New(t)
+
+	result, err := Divide(25, 10)
+	assert.Equal(2.5, result)
+	assert.Nil(err)
+
+	result, err = Divide(20, 5)
+	assert.Equal(4.0, result)
+	assert.Nil(err)
 }
